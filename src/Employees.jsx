@@ -15,7 +15,7 @@ import Devin from "./images/Devin.jpg"
 const Employees = () => {
 
   const [employees, setEmployees] = useState([{
-  id: 1,
+    id: 1,
     fullName: "Bob Jones",
     designation: "JavaScript Developer",
     gender: "male",
@@ -118,7 +118,7 @@ const Employees = () => {
         <div className="col-8">
       {
         employees.map((employee) => ( 
-          <div id={employee.id} className="Card">
+          <div key={employee.id} className="Card">
             <img src={employee.img} className="card-img-top" />
             <div className="card-body">
               <h5 className="card-title"> Name: {employee.fullName}</h5>
