@@ -116,6 +116,7 @@ const Employees = () => {
     <main className="container"> 
       <div className="row justify-content-center mt-3">
         <div className="col-8">
+          <div className="card-collection">
       {
         employees.map((employee) => ( 
           <div key={employee.id} className="Card">
@@ -127,6 +128,7 @@ const Employees = () => {
           </div>
         ))
       }
+          </div>
         </div>
       </div>
     </main>
