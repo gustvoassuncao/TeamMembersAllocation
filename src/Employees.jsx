@@ -16,7 +16,6 @@ const Employees = () => {
 
   const [selectedTeam, setTeam] = useState("TeamB");
 
-
   const [employees, setEmployees] = useState([{
     id: 1,
     fullName: "Bob Jones",
@@ -114,12 +113,22 @@ const Employees = () => {
     img: Devin
   }]);
 
+  function handleTeamSelectionChange(event){
+    setTeam(event.target.value);
+  }
+
+  function handleEmployeeCardClick(event){
+    const transformedEmployees = employees.map((employee) => employee.id === parseInt(event.currentTarget.id)
+      ? employee.teamName === selectedTeam ? { ...employee, teamName: '' }
+        : { ...employee, teamName: selectedTeam } : employee);
+    setEmployees(transformedEmployees);
+  }
 
   return (
     <main className="container"> 
       <div className="row justify-content-center mt-3 mb-3">
         <div className="col-5">
-          <select className="form-select form-select-lg">
+          <select className="form-select form-select-lg" value={selectedTeam} onChange={handleTeamSelectionChange}>
             <option value="TeamA">Team A</option>
             <option value="TeamB">Team B</option>
             <option value="TeamC">Team C</option>
@@ -132,7 +141,7 @@ const Employees = () => {
           <div className="card-collection">
       {
         employees.map((employee) => ( 
-          <div key={employee.id} className="card m-2" style={{cursor:"pointer"}} >
+          <div key={employee.id} id={employee.id} className={(employee.teamName === selectedTeam ? 'card m-2 standout' : 'card m-2')} style={{cursor:"pointer"}} onClick={handleEmployeeCardClick}>
             <img src={employee.img} className="card-img-top" />
             <div className="card-body" >
               <h5 className="card-title">{employee.fullName}</h5>
