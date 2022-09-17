@@ -4,7 +4,6 @@ Web page and responsive to crete some sorting of employees allocation on Teams, 
 ## 👨‍💻 Features
 - React function components;
 - First build passing props drilling, then updated to context 
-- Bootstrap 5; 
 - Implement the useState Hook in a Functional Component; 
 - Images passsing through context to render; 
 - JSX Code to Render Bootstrap Cards for Employees; 
@@ -13,7 +12,13 @@ Web page and responsive to crete some sorting of employees allocation on Teams, 
 - Move State Related Functionality to the App Component;
 - LocalStorage and the useEffect Hook;
 - Routing, react-router-dom package, Navigation; 
-- Abstract Responsibilities Into Functional Components
+- Abstract Responsibilities Into Functional Components; 
+
+## 🛠 Technologies
+- Vite React;
+- Bootstrap 5; 
+- Replit web; 
+- Typescript/Javascript; 
 
 ## 🔗 Deploy Vercel
 
