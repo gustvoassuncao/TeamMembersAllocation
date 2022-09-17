@@ -1,15 +1,30 @@
 import React from "react";
 import "./App.css";
+import Nav from "./Nav"
 import Header from "./Header";
 import Employees from "./Employees";
+import GroupedTeamMembers from "./GroupedTeamMembers"
 import Footer from "./Footer";
-import { useState } from "react";
+import Bob from "./images/Bob.jpg"
+import Jill from "./images/Jill.png"
+import Gail from "./images/Gail.jpg"
+import Sam from "./images/Sam.jpg"
+import David from "./images/David.jpg"
+import Sarah from "./images/Sarah.jpg"
+import James from "./images/James.jpg"
+import Jessica from "./images/Jessica.jpg"
+import Lita from "./images/Lita.jpg"
+import Daniel from "./images/Daniel.jpg"
+import Adrian from "./images/Adrian.png"
+import Devin from "./images/Devin.jpg"
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export default function App() {
 
-  const [selectedTeam, setTeam] = useState("TeamB");
+  const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem("selectedTeam")) || "TeamB");
 
-  const [employees, setEmployees] = useState([{
+  const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem("employeeList")) || [{
     id: 1,
     fullName: "Bob Jones",
     designation: "JavaScript Developer",
@@ -106,11 +121,26 @@ export default function App() {
     img: Devin
   }]);
 
-  function handleTeamSelectionChange(event){
+  useEffect(() => {
+
+    localStorage.setItem("employeeList", JSON.stringify(employees));
+
+  }, [employees]);
+
+  useEffect(() => {
+
+    localStorage.setItem("selectedTeam", JSON.stringify(selectedTeam));
+
+  }, [selectedTeam]);
+
+
+
+  function handleTeamSelectionChange(event) {
     setTeam(event.target.value);
   }
 
-  function handleEmployeeCardClick(event){
+
+  function handleEmployeeCardClick(event) {
     const transformedEmployees = employees.map((employee) => employee.id === parseInt(event.currentTarget.id)
       ? employee.teamName === selectedTeam ? { ...employee, teamName: '' }
         : { ...employee, teamName: selectedTeam } : employee);
@@ -118,16 +148,29 @@ export default function App() {
   }
 
   return (
-    <div>
-      <Header />
-      <Employees 
-      employees={employees}
-      selectedTeam={selectedTeam} 
-      handleTeamSelectionChange={handleTeamSelectionChange}
-      handleEmployeeCardClick={handleEmployeeCardClick}
-      
+    <Router>
+      <Nav />
+      <Header
+        selectedTeam={selectedTeam}
+        teamMemberCount={employees.filter((employee) => employee.teamName === selectedTeam).length}
       />
+      <Routes>
+        <Route 
+          path ="/"
+          element ={
+              <Employees
+              employees={employees}
+              selectedTeam={selectedTeam}
+              handleTeamSelectionChange={handleTeamSelectionChange}
+              handleEmployeeCardClick={handleEmployeeCardClick}/>}>
+        </Route>
+        <Route 
+        path ="/GroupedTeamMembers"
+        element ={GroupedTeamMembers}>
+        </Route>
+
+      </Routes>
       <Footer />
-    </div>
+    </Router>
   )
 }
