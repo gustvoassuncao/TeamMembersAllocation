@@ -3,7 +3,8 @@ import "./App.css";
 import Nav from "./Nav"
 import Header from "./Header";
 import Employees from "./Employees";
-import GroupedTeamMembers from "./GroupedTeamMembers"
+import GroupedTeamMembers from "./GroupedTeamMembers";
+import NotFound from "./NotFound"
 import Footer from "./Footer";
 import Bob from "./images/Bob.jpg"
 import Jill from "./images/Jill.png"
@@ -168,7 +169,8 @@ export default function App() {
         path ="/GroupedTeamMembers"
         element ={GroupedTeamMembers}>
         </Route>
-
+        <Route path="*" element={<NotFound />}>
+        </Route>
       </Routes>
       <Footer />
     </Router>
