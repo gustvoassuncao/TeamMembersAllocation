@@ -1,4 +1,16 @@
 import { createContext, useState, useEffect } from 'react';
+import Bob from "../images/Bob.jpg";
+import Jill from "../images/Jill.png";
+import Gail from "../images/Gail.jpg";
+import Sam from "../images/Sam.jpg";
+import David from "../images/David.jpg";
+import Sarah from "../images/Sarah.jpg";
+import James from "../images/James.jpg";
+import Jessica from "../images/Jessica.jpg";
+import Lita from "../images/Lita.jpg";
+import Daniel from "../images/Daniel.jpg";
+import Adrian from "../images/Adrian.png";
+import Devin from "../images/Devin.jpg";
 
 const DataContext = createContext({});
 
