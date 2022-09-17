@@ -5,10 +5,10 @@ const Nav = () => {
         <nav className="navbar navbar-expand-lg navbar-dark bg-black " >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item" >
-                    <Link className="nav-link" to="/">Home</Link>
+                    <Link className="nav-link" to="/">TeamsCards</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/GroupedTeamMembers">Teams</Link>
+                    <Link className="nav-link" to="/GroupedTeamMembers">TeamsList</Link>
                 </li>
             </ul>
         </nav>
