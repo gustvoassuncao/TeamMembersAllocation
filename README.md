@@ -3,7 +3,7 @@ A Web Page and responsive to create a sorting of employees allocation on Teams, 
 
 ## 👨‍💻 Features
 - React function components;
-- First build passing props drilling, then updated to context 
+- First build passing props drilling, then updated to context;
 - Implement the useState Hook in a Functional Component; 
 - Images passsing through context to render; 
 - JSX Code to Render Bootstrap Cards for Employees; 
