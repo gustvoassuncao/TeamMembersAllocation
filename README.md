@@ -1,5 +1,5 @@
 # 👨🏼‍🏫 Team Members Allocation
-A Web Page and responsive to create a sorting of employees allocation on Teams, try it!
+A Web Page and responsive for mobile/tablet to create a sorting of employees allocation on Teams, try it!
 
 ## 👨‍💻 Features
 - React function components;
